@@ -23,8 +23,9 @@ public class HomeController {
     public Product addProduct(@RequestParam String name,
                               @RequestParam Double price,
                               @RequestParam Double quantity,
+                              @RequestParam String image,
                               @RequestParam Boolean isPromoted) {
-        return homeService.addProduct(name, price, quantity, isPromoted);
+        return homeService.addProduct(name, price, quantity, image, isPromoted);
     }
 
     @PutMapping("/products")
