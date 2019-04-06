@@ -22,7 +22,18 @@ public class MainService {
         Product product = productRepository.findById(id).get();
 
         product.setQuantity(product.getQuantity() + quantity);
-        
+
+        productRepository.save(product);
+
+        return product;
+    }
+
+    public Product changePrice(Integer id, Double price) {
+
+        Product product = productRepository.findById(id).get();
+
+        product.setPrice(price);
+
         productRepository.save(product);
 
         return product;

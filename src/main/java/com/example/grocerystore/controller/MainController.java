@@ -28,4 +28,13 @@ public class MainController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/price/{id}")
+    public String changePriceForProduct(@PathVariable Integer id,
+                                         @RequestParam Double new_price) {
+
+        mainService.changePrice(id, new_price);
+
+        return "redirect:/";
+    }
 }

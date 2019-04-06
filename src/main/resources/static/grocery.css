@@ -6,5 +6,28 @@
 
 .item {
     font-weight: bold;
+}
 
+.show_hide {
+    display: none;
+}
+
+.change_price{
+    cursor: pointer;
+    color:darkblue;
+}
+
+.change_quantity{
+    cursor: pointer;
+    color:darkblue;
+}
+
+.price_full {
+    float: left;
+    padding-right: 5px;
+}
+
+.quantity_full {
+    float: left;
+    padding-right: 5px;
 }

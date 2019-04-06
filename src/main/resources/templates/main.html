@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="grocery.css">
+    <script src="grocery.js"></script>
     <meta charset="UTF-8">
     <title>Main</title>
 </head>
@@ -12,15 +13,26 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-2 col-xl-2 product_item" th:each="p: ${products}">
-            <div>Nazwa: <span class="item" th:text="${p.getName()}"></span></div>
-            <div>Cena: <span class="item" th:text="${p.getPrice()}"></span> zł</div>
-            <div>Ilość: <span class="item" th:text="${p.getQuantity()}"></span></div>
             <img th:src="@{${p.getImage()}}" style="width:70%">
-            <form th:action="@{|/product/${p.getId()}|}">
-                <input type="number" min="1" max="20" name="delivery_quantity">
-                <input type="submit" value="Dodaj">
-            </form>
+            <div>Nazwa: <span class="item" th:text="${p.getName()}"></span></div>
+            <div class="price_full">Cena: <span class="item" th:text="${p.getPrice()}"></span> zł</div>
+            <div href="#" class="change_price">Zmień</div>
+            <div class="change_price_form show_hide">
+                <form th:action="@{|/price/${p.getId()}|}">
+                    <input type="text" name="new_price" size="5">
+                    <input type="submit" value="Zmień">
+                </form>
+            </div >
+            <div class="quantity_full">Ilość: <span class="item" th:text="${p.getQuantity()}"></span></div>
+            <div href="#" class="change_quantity">Dodaj</div>
+            <div class="change_quantity_form show_hide">
+                <form th:action="@{|/product/${p.getId()}|}">
+                    <input type="number" min="1" max="20" name="delivery_quantity">
+                    <input type="submit" value="Dodaj">
+                </form>
+            </div>
         </div>
+        <div class="col-xs-6 col-sm-6 col-md-2 col-xl-2 product_item">Dodaj nowy produkt</div>
     </div>
 </div>
 
