@@ -3,13 +3,13 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="grocery.css">
-    <script src="grocery.js"></script>
+    <link rel="stylesheet" href="/grocery.css">
+    <script src="/grocery.js"></script>
     <meta charset="UTF-8">
-    <title>Main</title>
+    <title>Sklep | Strona główna</title>
 </head>
 <body>
-
+<div th:if="${item_message}" th:text="${item_message}" class="item_message"></div>
 <div class="container">
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-2 col-xl-2 product_item" th:each="p: ${products}">
@@ -32,7 +32,9 @@
                 </form>
             </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-2 col-xl-2 product_item">Dodaj nowy produkt</div>
+        <div class="col-xs-6 col-sm-6 col-md-2 col-xl-2 product_item new_product_link">
+            <a href="/new">Dodaj/Usuń produkt</a>
+        </div>
     </div>
 </div>
 

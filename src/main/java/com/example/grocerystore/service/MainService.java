@@ -38,4 +38,14 @@ public class MainService {
 
         return product;
     }
+
+
+    public Product addNewProduct(String name, Double price, Double quantity, String image) {
+
+        return productRepository.save( new Product(name, price, quantity, image, false));
+    }
+
+    public void deleteProduct(Integer id) {
+        productRepository.deleteById(id);
+    }
 }

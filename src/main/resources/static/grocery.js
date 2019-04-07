@@ -10,6 +10,10 @@ $("document").ready(function() {
         $(this).next(".change_quantity_form").toggleClass("show_hide");
     });
 
+    var new_message_content = $(".new_message").text();
 
+    if (new_message_content == "Dodano produkt") {
+        $(".new_message").css("color", "green");
+    }
 
 });
