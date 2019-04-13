@@ -80,3 +80,14 @@
     text-decoration: none;
     background-color: #ba0e0e;
 }
+
+.new_form_row {
+    padding-bottom: 10px;
+
+}
+
+.new_form {
+    background-color: #f4f4f4;
+    border: 1px #6c757d solid;
+    padding: 20px;
+}
