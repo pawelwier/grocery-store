@@ -19,6 +19,11 @@ public class HomeController {
         return homeService.getAllProducts();
     }
 
+    @GetMapping("/products/{id}")
+    public Product getProductById(@PathVariable Integer id) {
+        return homeService.getProductById(id);
+    }
+
     @PostMapping("/products")
     public Product addProduct(@RequestParam String name,
                               @RequestParam Double price,

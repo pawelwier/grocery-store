@@ -39,6 +39,7 @@ public class HomeService {
         productRepository.delete(productRepository.findById(id).get());
     }
 
-
-
+    public Product getProductById(Integer id) {
+        return productRepository.findById(id).get();
+    }
 }
