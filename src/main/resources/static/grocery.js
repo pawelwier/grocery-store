@@ -19,9 +19,17 @@ $("document").ready(function() {
     var product_quantity_num = 0;
 
     $(".quantity_plus").click(function () {
-        product_quantity_num++;
-        console.log(product_quantity_num);
-       $(".product_quantity").val(product_quantity_num);
+        if (product_quantity_num < 10) {
+            product_quantity_num++;
+            $(".product_quantity").val(product_quantity_num);
+        }
+    });
+
+    $(".quantity_minus").click(function () {
+        if (product_quantity_num > 0) {
+            product_quantity_num--;
+            $(".product_quantity").val(product_quantity_num);
+        }
     });
 
 

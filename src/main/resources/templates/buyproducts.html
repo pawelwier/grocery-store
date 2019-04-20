@@ -9,19 +9,32 @@
     <title>Sklep | Kup</title>
 </head>
 <body>
-
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-5 col-xl-5 product_item" th:each="p: ${products}">
-            <div><span style="width:150px;display:inline-block">Nazwa: <span class="item" th:text="${p.getName()}"></span></span>
-                Cena: <span class="item" th:text="${p.getPrice()}"></span> zł</div>
-            Ilość: <button class="plus_minus quantity_minus">-</button>
-            <input type="text" size="1" class="product_quantity" disabled style="text-align: center"/>
-            <button class="plus_minus quantity_plus">+</button>
-            </div>
-        </div>
+<form action="/buyproduct">
+    <div>
+        Wybierz produkt:
     </div>
-</div>
+    <div>
+        <select name="choose_product">
+            <option th:each="p: ${products}"> <span th:text="${p.getName()}"></span></option>
+        </select>
+        <button type="button" class="plus_minus quantity_minus">-</button>
+        <input name="quantity_product" type="text" size="1" class="product_quantity" style="text-align: center"/>
+        <button type="button" class="plus_minus quantity_plus">+</button>
+    </div>
+    <input type="submit" value="Kup">
+</form>
+
+<!--<div class="container">-->
+    <!--<div class="row">-->
+        <!--<div class="col-xs-12 col-sm-12 col-md-5 col-xl-5 product_item">-->
+            <!--<div><span style="width:210px;display:inline-block">Nazwa: <span class="item" th:if="${selected_product}" th:text="${selected_product.getName()}"></span></span>-->
+                <!--Cena: <span class="item" th:if="${selected_product}" th:text="${selected_product.getPrice()}"></span> zł</div>-->
+                <!--Ilość: <button class="plus_minus quantity_minus">-</button>-->
+            <!--<input type="text" size="1" class="product_quantity" disabled style="text-align: center"/>-->
+            <!--<button class="plus_minus quantity_plus">+</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
 </body>
 </html>

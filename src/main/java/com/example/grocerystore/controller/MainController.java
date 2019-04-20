@@ -98,11 +98,13 @@ public class MainController {
     }
 
     @GetMapping("/buy")
-    public String buyProducts(ModelMap modelMap) {
+    public String buyProductSelect(ModelMap modelMap) {
 
         modelMap.put("products", mainService.showAllProducts());
 
         return "buyproducts";
     }
+
+
 
 }
