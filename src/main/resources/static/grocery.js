@@ -16,4 +16,13 @@ $("document").ready(function() {
         $(".new_message").css("color", "green");
     }
 
+    var product_quantity_num = 0;
+
+    $(".quantity_plus").click(function () {
+        product_quantity_num++;
+        console.log(product_quantity_num);
+       $(".product_quantity").val(product_quantity_num);
+    });
+
+
 });

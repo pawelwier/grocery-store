@@ -97,5 +97,12 @@ public class MainController {
         return "deleteform";
     }
 
+    @GetMapping("/buy")
+    public String buyProducts(ModelMap modelMap) {
+
+        modelMap.put("products", mainService.showAllProducts());
+
+        return "buyproducts";
+    }
 
 }
