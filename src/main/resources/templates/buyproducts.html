@@ -9,33 +9,30 @@
     <title>Sklep | Kup</title>
 </head>
 <body>
-<div th:if="${message}" th:text="${message}" class="item_message"></div>
+
+<div th:if="${quantity_error}" th:text="${quantity_error}" class="new_message"></div>
+
+<div class="container" style="margin-left: 100px;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-xl-6">
 <form action="/buyproduct">
-    <div>
-        Wybierz produkt:
-    </div>
-    <div>
+    <div class="new_form">
+        <div class="new_form_row">
+   <span class="form_text">Wybierz produkt: </span>
         <select name="name">
             <option th:each="p: ${products}"> <span th:text="${p.getName()}"></span></option>
-        </select>
+        </select></div>
+        <div class="new_form_row">
+        <span class="form_text">Ilość: </span>
         <button type="button" class="plus_minus quantity_minus">-</button>
         <input name="quantity" type="text" size="1" class="product_quantity" style="text-align: center"/>
-        <button type="button" class="plus_minus quantity_plus">+</button>
-    </div>
+            <button type="button" class="plus_minus quantity_plus">+</button></div>
     <input type="submit" value="Kup">
+    </div>
 </form>
-
-<!--<div class="container">-->
-    <!--<div class="row">-->
-        <!--<div class="col-xs-12 col-sm-12 col-md-5 col-xl-5 product_item">-->
-            <!--<div><span style="width:210px;display:inline-block">Nazwa: <span class="item" th:if="${selected_product}" th:text="${selected_product.getName()}"></span></span>-->
-                <!--Cena: <span class="item" th:if="${selected_product}" th:text="${selected_product.getPrice()}"></span> zł</div>-->
-                <!--Ilość: <button class="plus_minus quantity_minus">-</button>-->
-            <!--<input type="text" size="1" class="product_quantity" disabled style="text-align: center"/>-->
-            <!--<button class="plus_minus quantity_plus">+</button>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-
+        </div>
+    </div>
+</div>
+<a type="button" class="btn btn-outline-secondary" href="/"  style="margin-left: 100px;margin-top:50px">Strona główna</a>
 </body>
 </html>
