@@ -9,16 +9,17 @@
     <title>Sklep | Kup</title>
 </head>
 <body>
+<div th:if="${message}" th:text="${message}" class="item_message"></div>
 <form action="/buyproduct">
     <div>
         Wybierz produkt:
     </div>
     <div>
-        <select name="choose_product">
+        <select name="name">
             <option th:each="p: ${products}"> <span th:text="${p.getName()}"></span></option>
         </select>
         <button type="button" class="plus_minus quantity_minus">-</button>
-        <input name="quantity_product" type="text" size="1" class="product_quantity" style="text-align: center"/>
+        <input name="quantity" type="text" size="1" class="product_quantity" style="text-align: center"/>
         <button type="button" class="plus_minus quantity_plus">+</button>
     </div>
     <input type="submit" value="Kup">

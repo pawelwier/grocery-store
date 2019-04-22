@@ -39,15 +39,15 @@ public class MainService {
         return product;
     }
 
-    public Product findProductByName(String name) {
-
-        for (Product p : productRepository.findAll()) {
-            if (p.getName().equals(name)) {
-                return p;
-            }
-        }
-        return null;
-    }
+//    public Product findProductByName(String name) {
+//
+//        for (Product p : productRepository.findAll()) {
+//            if (p.getName().equals(name)) {
+//                return p;
+//            }
+//        }
+//        return null;
+//    }
 
 
     public Product addNewProduct(String name, Double price, Double quantity, String image) {
@@ -58,4 +58,17 @@ public class MainService {
     public void deleteProduct(Integer id) {
         productRepository.deleteById(id);
     }
+
+    public Product sellProductQuantity(String name, Double quantity) {
+
+        Product product = productRepository.findProductByName(name);
+
+        product.setQuantity(product.getQuantity() - quantity);
+
+        productRepository.save(product);
+
+        return product;
+
+    }
+
 }

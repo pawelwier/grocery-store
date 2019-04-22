@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-//    @Query(value = "select p from Product p where p.id > ?1")
-//    public List<Product> getAllByIdBigger(Integer id);
+    @Query(value = "select p from Product p where p.name = ?1")
+    Product findProductByName(String name);
 
 }

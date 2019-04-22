@@ -105,6 +105,18 @@ public class MainController {
         return "buyproducts";
     }
 
+    @GetMapping("/buyproduct")
+    public String buyProduct(@RequestParam (required = false) String name,
+                             @RequestParam (required = false) Double quantity,
+                             ModelMap modelMap) {
 
+        if (quantity == null || quantity == 0) {
+            modelMap.put("message", "Podaj ilość.");
+            return "redirect:/buy";
+        } else {
+            mainService.sellProductQuantity(name, quantity);
+            return "redirect:/";
+        }
+    }
 
 }
