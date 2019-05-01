@@ -22,7 +22,7 @@ public class Product {
 
     private Double price;
 
-    private Double quantity;
+    private Integer quantity;
 
     private String image;
 
@@ -30,7 +30,7 @@ public class Product {
     private Boolean isPromoted;
 
 
-    public Product(String name, Double price, Double quantity, String image, Boolean isPromoted) {
+    public Product(String name, Double price, Integer quantity, String image, Boolean isPromoted) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;

@@ -17,7 +17,7 @@ public class MainService {
         return productRepository.findAll();
     }
 
-    public Product deliverProduct(Integer id, Double quantity) {
+    public Product deliverProduct(Integer id, Integer quantity) {
 
         Product product = productRepository.findById(id).get();
 
@@ -50,7 +50,7 @@ public class MainService {
     }
 
 
-    public Product addNewProduct(String name, Double price, Double quantity, String image) {
+    public Product addNewProduct(String name, Double price, Integer quantity, String image) {
 
         return productRepository.save( new Product(name, price, quantity, image, false));
     }
@@ -59,7 +59,7 @@ public class MainService {
         productRepository.deleteById(id);
     }
 
-    public Product sellProductQuantity(String name, Double quantity) {
+    public Product sellProductQuantity(String name, Integer quantity) {
 
         Product product = productRepository.findProductByName(name);
 

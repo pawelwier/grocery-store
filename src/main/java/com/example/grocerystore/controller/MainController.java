@@ -31,7 +31,7 @@ public class MainController {
 
     @GetMapping("/product/{id}")
     public String makeDeliveryForProduct(@PathVariable Integer id,
-                                         @RequestParam(required = false) Double delivery_quantity,
+                                         @RequestParam(required = false) Integer delivery_quantity,
                                          ModelMap modelMap) {
 
         if (delivery_quantity == null) {
@@ -69,7 +69,7 @@ public class MainController {
     @GetMapping("/newproduct")
     public String showAddProductForm(@RequestParam(required = false) String new_name,
                                      @RequestParam(required = false) Double new_price,
-                                     @RequestParam(required = false) Double new_quantity,
+                                     @RequestParam(required = false) Integer new_quantity,
                                      @RequestParam(required = false) String new_image,
                                      ModelMap modelMap) {
         if (new_name.equals("") || new_image.equals("") || new_price == null || new_quantity == null) {
@@ -111,7 +111,7 @@ public class MainController {
 
     @GetMapping("/buyproduct")
     public String buyProduct(@RequestParam (required = false) String name,
-                             @RequestParam (required = false) Double quantity,
+                             @RequestParam (required = false) Integer quantity,
                              ModelMap modelMap) {
 
         Product product = productRepository.findProductByName(name);

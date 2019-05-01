@@ -17,7 +17,7 @@ public class HomeService {
         return productRepository.findAll();
     }
 
-    public Product addProduct(String name, Double price, Double quantity, String image, Boolean isPromoted) {
+    public Product addProduct(String name, Double price, Integer quantity, String image, Boolean isPromoted) {
         Product product = new Product(name, price, quantity, image, isPromoted);
         return productRepository.save(product);
     }
