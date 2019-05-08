@@ -125,15 +125,16 @@ public class MainController {
             return "redirect:/";
         }
          else {
-             return "redirect:/buyerror";
+             return "redirect:/buyerror/"+product.getQuantity();
         }
 
     }
 
-    @GetMapping ("/buyerror")
-    public String displayQuantityError(ModelMap modelMap) {
+    @GetMapping ("/buyerror/{quantity}")
+    public String displayQuantityError(@PathVariable int quantity,
+                                       ModelMap modelMap) {
 
-        modelMap.put("quantity_error", "Brak podanej ilości produktu w magazynie.");
+        modelMap.put("quantity_error", "Brak podanej ilości produktu. Stan w magazynie: " + quantity);
 
         modelMap.put("products", mainService.showAllProducts());
 
